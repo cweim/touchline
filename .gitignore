@@ -1,0 +1,52 @@
+runtime/
+data/
+local_settings.json
+models/*
+!models/manifest.json
+node_modules
+frontend/dist/
+*.tsbuildinfo
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+.venv/
+.env
+.env.*
+.DS_Store
+._*
+*.log
+
+# Local video renders and screenshots
+/brag-output/
+
+# Local planning and submission drafts
+/SUBMISSION_PLAN.md
+/submission-assets/
+
+# Protect accidentally copied data, checkpoints, archives and credentials
+*.mp4
+*.mkv
+*.mov
+*.avi
+*.webm
+*.pt
+*.pth
+*.onnx
+*.safetensors
+*.sqlite*
+*.db
+*.npz
+*.npy
+*.parquet
+*.zip
+*.tar
+*.tar.gz
+*.pem
+*.key
+.azure/
+.aws/
+.venv-*/
+
+# The one approved public demo is intentionally included.
+!docs/media/touchline-demo.mp4
