@@ -1,0 +1,25 @@
+flowchart LR
+    broadcast["Broadcast video"]
+    wideShots["Find wide shots"]
+    candidateTracklets["Create candidate tracklets"]
+    references["Select player references"]
+    retrieval["Retrieve target appearances"]
+    review["Review and trim tracklets"]
+    windows["Build analysis windows"]
+    dataset["Export player dataset"]
+    downstream["Downstream analysis examples"]
+
+    broadcast --> wideShots
+    wideShots -->|"YOLO and ByteTrack"| candidateTracklets
+    candidateTracklets -->|"Quality crop embeddings"| retrieval
+    candidateTracklets -->|"Human selection"| references
+    references -->|"Target profile"| retrieval
+    retrieval -->|"Ranked candidates"| review
+    review -->|"Accepted intervals"| windows
+    review -->|"Tracklet export"| dataset
+    windows -->|"Selected windows"| dataset
+    dataset -.-> downstream
+
+    style references fill:#f0eafa,stroke:#a986d0
+    style dataset fill:#edf5ff,stroke:#6fa8e8
+    style downstream fill:#f5f7fb,stroke:#b5c5d8

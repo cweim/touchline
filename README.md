@@ -1,7 +1,8 @@
 # Touchline
 
-Turn football broadcast video into player-specific tracklets and traceable pose
-windows. A local FastAPI + React application for creating reusable video datasets.
+Turn football broadcast video into reviewed player tracklets and analysis windows.
+A local FastAPI + React application for preparing traceable player datasets for
+downstream analytics.
 
 **Choose video → Find wide shots → Select player references → Retrieve and review
 → Build windows → Download dataset**
@@ -16,6 +17,14 @@ The recording shows a saved collection and real reference-selection/review
 interactions. Full-match processing is not instantaneous. The current app also
 supports private Azure dataset export, verified separately after this recording.
 Music and media attributions are in [Demo credits](docs/media/CREDITS.md).
+
+## Data pipeline
+
+![Touchline illustrated pipeline: discover appearances, find the target player and package reusable data](docs/diagrams/touchline-pipeline-v2.png)
+
+Tracking creates candidate tracklets first. Player references guide retrieval;
+reviewed tracklets can then be exported directly or organized into analysis windows.
+[Full-size diagram and implementation notes](docs/diagrams/README.md).
 
 ## Run locally
 
