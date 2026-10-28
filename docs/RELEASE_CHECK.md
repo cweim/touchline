@@ -41,3 +41,34 @@
 The clean upload copy excludes runtime databases, source datasets, checkpoints,
 cloud credentials, local settings, dependencies, render workspaces and internal
 submission drafts. Publish only that copy or the intended non-ignored Git contents.
+
+## Final clean-install and security recheck — 2026-10-28
+
+Archived the published Git tree to a new temporary directory and created a
+Python 3.11 virtual environment without system packages. Installed the declared
+test/Azure/import extras, ran `pip check`, installed the locked frontend with
+`npm ci`, and built it successfully. The isolated suite passed **57 tests**.
+The clean local server served the empty first-run interface with HTTP 200 and
+no browser JavaScript errors. All five model/source download URLs returned 200;
+checkpoint inference was not rerun.
+
+The dependency audit identified the old FastAPI pin's vulnerable Starlette
+dependency. Updated FastAPI to 0.162.0 and required Starlette 1.3.1 or later.
+After reinstalling the revised manifest, `pip check` and all 57 tests passed
+with Starlette 1.10.0. The README now upgrades installer tooling, includes clone
+commands and clarifies the empty initial state and model-setup restart.
+
+`npm audit` and `pip-audit` reported **zero known dependency vulnerabilities**
+in the final clean environment. The local application package is not in PyPI's
+advisory database and is not covered by that dependency result. The relevant
+upstream fixes include Starlette's
+[form-parsing advisory](https://github.com/Kludex/starlette/security/advisories/GHSA-82w8-qh3p-5jfq)
+and [request-URL advisory](https://github.com/Kludex/starlette/security/advisories/GHSA-jp82-jpqv-5vv3).
+
+Credential-pattern checks scanned all 59 historical Git blobs (53 text blobs),
+finding no private keys, common API/access tokens, Azure storage keys or SAS
+signatures. The current tracked tree contains no runtime data, `.env`, local
+settings, dependencies or editable video production folder. These checks are a
+bounded release review, not a penetration test or a guarantee of no security
+defects. The app remains a local, loopback-only tool rather than a multi-user
+hosted service. No live Azure call was made for this check.

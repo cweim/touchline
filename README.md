@@ -91,23 +91,31 @@ reviewed tracklets can then be exported directly or organized into analysis wind
 Python 3.11+, Node.js 20+ and FFmpeg/FFprobe must be installed.
 
 ```bash
+git clone https://github.com/cweim/touchline.git
+cd touchline
 python3 -m venv .venv
 source .venv/bin/activate
+python -m pip install --upgrade pip setuptools
 python -m pip install -e '.[test]'
 npm ci --prefix frontend
 npm run build --prefix frontend
 python -m retrieval serve --port 8766
 ```
 
-Open **http://127.0.0.1:8766**. The server binds to loopback only.
+Open **http://127.0.0.1:8766**. The server binds to loopback only. A fresh clone
+starts empty; the README demo's private match data and model weights are not
+bundled. You do not need Azure credentials to run the local workflow.
 
 Cached pose windows and metadata exports need no model inference. For processing
-new videos, install the detector, identity and pose checkpoints:
+new videos, stop the server with Ctrl+C, install the detector, identity and pose
+checkpoints, then restart it. Keep the virtual environment activated:
 
 ```bash
 python scripts/setup_models.py --pose
 # Optional DINOv2 identity baseline:
 python scripts/setup_models.py --dinov2
+# Restart after setup:
+python -m retrieval serve --port 8766
 ```
 
 Keep source videos in `data/`, select an existing path, or upload through the app.
