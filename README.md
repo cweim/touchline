@@ -4,16 +4,42 @@ Turn football broadcast video into reviewed player tracklets and analysis window
 A local FastAPI + React application for preparing traceable player datasets for
 downstream analytics.
 
+**A few player references → embedding-based retrieval across the broadcast → a reusable player dataset.**
+
 Dedicated player-tracking feeds and continuous wide-angle footage are not always
 available. Touchline makes the player appearances visible in an ordinary broadcast
-reusable: discover them, review the target identity, and export the observations
-with their source timestamps and quality metadata.
+reusable. Select a small set of clean examples of your target player; Touchline
+uses visual embeddings to rank candidate tracklets across the processed video.
+Review the matches, then export the observations with source timestamps and
+quality metadata for downstream analytics.
 
 **Choose video → Find wide shots → Select player references → Retrieve and review
 → Build windows → Download dataset**
 
 [Quick start](#run-locally) · [Dataset handoff](docs/HANDOFF.md) ·
 [Movement Lens companion](https://github.com/cweim/movement-lens)
+
+## Show the player a few times. Search across the match.
+
+Camera cuts break a broadcast into disconnected views. Touchline connects the
+identity-search step across those views using a small reference collection:
+**eight clean references from different camera shots**, with an explicit option
+to continue with five. Each reference supplies player crops from a confirmed
+short interval, rather than requiring frame-by-frame annotation.
+
+| Step | What Touchline does |
+| --- | --- |
+| Discover candidate tracks | Detect players and track them within camera shots, producing short tracklets. |
+| Learn the target's appearance | Encode player crops with OSNet or optional DINOv2; build a target profile and a lightweight target/non-target classifier. |
+| Search across shots | Score candidate tracklets using their visual similarity and classifier output, and flag uncertain or poor-quality results for review. |
+| Build the dataset | Turn accepted portions into traceable tracklets and pose windows for other analysis tools. |
+
+The automation turns a small reference collection into a ranked review queue
+across a full-match input. Cached crop embeddings make rescoring reusable when
+references or review feedback change. The workflow targets **one selected player
+at a time**; another target needs its own reference collection. Retrieval can miss
+appearances or confuse similar-looking players, so review remains part of the
+workflow. Broadcast gaps remain unobserved.
 
 ## Watch the demo
 
