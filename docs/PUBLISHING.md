@@ -47,9 +47,9 @@ storage feature can be described in the written submission.
 3. Run the README setup in an independent directory. A fresh app starts empty;
    supply your own permitted video and separately downloaded models for inference.
 4. Run `python -m pytest -q` and `npm run build --prefix frontend`.
-5. Stage and inspect the source, then commit. Create the remote and push when the
-   public repository destination is chosen. Never upload a ZIP of the populated
-   working folder: it contains ignored data.
+5. Stage and inspect the intended files, commit, then push to the existing
+   `origin/main` at `https://github.com/cweim/touchline.git`. Never upload a ZIP
+   of the populated working folder: it contains ignored data.
 
 An upload-only clean copy is also prepared under the ignored local directory
 `runtime/releases/touchline-github-ready/`. Its adjacent ZIP is a transport copy.
@@ -59,3 +59,41 @@ after changes.
 
 GitHub documentation: [large files](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github),
 [attachments](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/attaching-files).
+
+
+## Connected-project presentation — October 28, 2026
+
+The README links to [Movement Lens](https://github.com/cweim/movement-lens), shows
+the shared data-flow diagram and points to the [dataset handoff guide](HANDOFF.md).
+Touchline is the general dataset-preparation project; Movement Lens is a separate
+downstream movement-exploration app. The apps exchange immutable exports rather
+than sharing a live runtime or database.
+
+The README screenshots are selected from the existing saved-session Touchline
+walkthrough. Its match differs from Movement Lens's prepared example. Do not
+present their counts as one archive transferred on screen.
+
+Use these GitHub **About → Edit** fields:
+
+- **Description:** Turn football broadcast video into reviewed player tracklets and traceable pose-window datasets for downstream analytics, with optional private Azure export.
+- **Topics:** `football`, `sports-analytics`, `computer-vision`, `player-tracking`, `pose-estimation`, `dataset`, `azure-blob-storage`, `fastapi`, `react`.
+- **Website:** add a real public hosted demo or accepted demo-video URL when available.
+
+Repository metadata is separate from Git-tracked files. A README commit does not
+set the About description, topics or website. Movement Lens's matching fields
+are in its [publishing notes](https://github.com/cweim/movement-lens/blob/main/docs/PUBLISHING.md).
+
+
+## Push this presentation update
+
+From the `touchline` repository root:
+
+```bash
+git add README.md docs .github
+git diff --cached --stat
+git commit -m "docs: connect Touchline and Movement Lens with a visual handoff"
+git push origin main
+```
+
+The local checkout now follows the existing public history; no force push or
+new repository initialization is needed.

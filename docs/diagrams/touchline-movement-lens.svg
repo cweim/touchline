@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="780" viewBox="0 0 1600 780" role="img" aria-labelledby="title desc">
+<title id="title">Touchline to Movement Lens: from broadcast footage to movement evidence</title>
+<desc id="desc">Touchline finds wide shots, retrieves a referenced player and exports two-second pose windows. The ZIP, transferred locally or through private Azure Blob Storage, contains arrays, source times and provenance. Movement Lens checks quality, groups windows, shows recurrence on a match timeline and exports a research-grounded evidence pack.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#758597"/></marker></defs>
+<rect width="1600" height="780" rx="24" fill="#f7f8fa"/>
+<g font-family="system-ui, sans-serif">
+<text x="64" y="66" font-size="16" font-weight="700" letter-spacing="3" fill="#617084">TWO PROJECTS · ONE TRACEABLE DATA FLOW</text>
+<text x="64" y="124" font-size="43" font-weight="700" letter-spacing="-1.4" fill="#223144">Build the dataset. Understand the movement.</text>
+<text x="64" y="163" font-size="21" fill="#526276">A reusable player-window export connects preparation to downstream analysis.</text>
+<rect x="64" y="210" width="480" height="420" rx="20" fill="#ffffff" stroke="#d9e3f3" stroke-width="2"/>
+<rect x="64" y="210" width="480" height="7" rx="3" fill="#007aff"/>
+<text x="96" y="258" font-size="15" font-weight="700" letter-spacing="2" fill="#0067d6">01 · PREPARE PLAYER DATA</text>
+<text x="96" y="305" font-size="34" font-weight="750" fill="#173451">Touchline</text>
+<text x="96" y="339" font-size="19" fill="#526276">Input: your football broadcast video</text>
+<g fill="#e9f2ff"><circle cx="113" cy="394" r="17"/><circle cx="113" cy="470" r="17"/><circle cx="113" cy="546" r="17"/></g>
+<g fill="#0067d6" font-size="15" text-anchor="middle" font-weight="700"><text x="113" y="400">1</text><text x="113" y="476">2</text><text x="113" y="552">3</text></g>
+<g fill="#223144" font-size="22" font-weight="650"><text x="145" y="394">Find wide shots</text><text x="145" y="470">Retrieve and review the player</text><text x="145" y="546">Build analysis windows</text></g>
+<g fill="#526276" font-size="17"><text x="145" y="421">Detection and tracking within each shot</text><text x="145" y="497">Appearance references + human review</text><text x="145" y="573">Pose arrays, metadata and optional clips</text></g>
+<path d="M554 420H600" fill="none" stroke="#758597" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="620" y="280" width="360" height="300" rx="20" fill="#edf2f8" stroke="#d9e2ee" stroke-width="2"/>
+<rect x="756" y="312" width="88" height="66" rx="10" fill="#ffffff" stroke="#9aabc0" stroke-width="2"/>
+<path d="M794 312V378" stroke="#9aabc0" stroke-width="2" stroke-dasharray="4 4"/>
+<text x="800" y="355" text-anchor="middle" font-size="17" font-weight="700" fill="#40566e">ZIP</text>
+<text x="800" y="417" text-anchor="middle" font-size="24" font-weight="700" fill="#223144">Player-window dataset</text>
+<text x="800" y="455" text-anchor="middle" font-size="18" fill="#40566e">2 s · 50 pose samples · 25 Hz</text>
+<text x="800" y="491" text-anchor="middle" font-size="17" fill="#526276">NPZ arrays · CSV / JSON</text>
+<text x="800" y="521" text-anchor="middle" font-size="17" fill="#526276">Source times · review provenance</text>
+<text x="800" y="551" text-anchor="middle" font-size="17" fill="#526276">Source hash · optional MP4 clips</text>
+<path d="M994 420H1040" fill="none" stroke="#758597" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="1060" y="210" width="476" height="420" rx="20" fill="#ffffff" stroke="#d6e5dd" stroke-width="2"/>
+<rect x="1060" y="210" width="476" height="7" rx="3" fill="#286b50"/>
+<text x="1092" y="258" font-size="15" font-weight="700" letter-spacing="2" fill="#286b50">02 · EXPLORE MOVEMENT PATTERNS</text>
+<text x="1092" y="305" font-size="34" font-weight="750" fill="#244c3c">Movement Lens</text>
+<text x="1092" y="339" font-size="19" fill="#526276">Input: exported player pose windows</text>
+<g fill="#eaf3eb"><circle cx="1109" cy="394" r="17"/><circle cx="1109" cy="470" r="17"/><circle cx="1109" cy="546" r="17"/></g>
+<g fill="#286b50" font-size="15" text-anchor="middle" font-weight="700"><text x="1109" y="400">1</text><text x="1109" y="476">2</text><text x="1109" y="552">3</text></g>
+<g fill="#223144" font-size="22" font-weight="650"><text x="1141" y="394">Check quality and group windows</text><text x="1141" y="470">Review recurring patterns</text><text x="1141" y="546">Explain and export evidence</text></g>
+<g fill="#526276" font-size="17"><text x="1141" y="421">Pose descriptors + exploratory K-means</text><text x="1141" y="497">Example clips + both-half match timeline</text><text x="1141" y="573">Microsoft Foundry + cited research</text></g>
+<rect x="455" y="661" width="690" height="48" rx="24" fill="#ffffff" stroke="#dae2ec"/>
+<text x="800" y="691" text-anchor="middle" font-size="18" fill="#40566e">Handoff: local ZIP or private Azure Blob Storage snapshot</text>
+<text x="800" y="750" text-anchor="middle" font-size="17" fill="#617084">Observed broadcast footage only. Missing periods remain unknown.</text>
+</g></svg>

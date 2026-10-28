@@ -15,3 +15,9 @@
 The poster is taken from the approved demo. The MP4 is copied unchanged from the
 approved local V2 render. Private source footage and editable production assets
 are excluded from this repository.
+
+
+The README's `player-references.png` and `player-windows.png` are selected saved-session
+screenshots used in the approved walkthrough. They show a different match from the
+Movement Lens example. The shared pipeline SVG is original schematic artwork and
+contains no broadcast frames or private identifiers.

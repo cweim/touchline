@@ -4,8 +4,16 @@ Turn football broadcast video into reviewed player tracklets and analysis window
 A local FastAPI + React application for preparing traceable player datasets for
 downstream analytics.
 
+Dedicated player-tracking feeds and continuous wide-angle footage are not always
+available. Touchline makes the player appearances visible in an ordinary broadcast
+reusable: discover them, review the target identity, and export the observations
+with their source timestamps and quality metadata.
+
 **Choose video → Find wide shots → Select player references → Retrieve and review
 → Build windows → Download dataset**
+
+[Quick start](#run-locally) · [Dataset handoff](docs/HANDOFF.md) ·
+[Movement Lens companion](https://github.com/cweim/movement-lens)
 
 ## Watch the demo
 
@@ -18,13 +26,39 @@ interactions. Full-match processing is not instantaneous. The current app also
 supports private Azure dataset export, verified separately after this recording.
 Music and media attributions are in [Demo credits](docs/media/CREDITS.md).
 
-## Data pipeline
+## Two projects, one data flow
+
+![Touchline creates the player dataset; Movement Lens explores its movement patterns](docs/diagrams/touchline-movement-lens.svg)
+
+**Touchline prepares the data. [Movement Lens](https://github.com/cweim/movement-lens) explores it.**
+Touchline remains a general dataset builder. Movement Lens is one concrete downstream
+use: check pose-window quality, review numerical movement groups, see their observed
+moments across a match, and export a research-grounded evidence pack.
+
+The handoff is a **Windows** or **Both** ZIP, transferred locally or through private
+Azure Blob Storage. The apps run independently and share no live database.
+[Follow the export → import walkthrough](docs/HANDOFF.md).
+
+## Inside the app
+
+| Select player references | Build reusable windows |
+| --- | --- |
+| <a href="docs/media/player-references.png"><img src="docs/media/player-references.png" alt="Wide-shot player references in Touchline" width="400"></a> | <a href="docs/media/player-windows.png"><img src="docs/media/player-windows.png" alt="Pose-window browser and selection in Touchline" width="400"></a> |
+
+These screenshots show the saved-session demo. Their window counts and match differ
+from Movement Lens's prepared example; they illustrate the format and workflow,
+not the same archive being transferred between recordings.
+
+<details>
+<summary>See Touchline's detailed detection, retrieval and window pipeline</summary>
 
 ![Touchline illustrated pipeline: discover appearances, find the target player and package reusable data](docs/diagrams/touchline-pipeline-v2.png)
 
 Tracking creates candidate tracklets first. Player references guide retrieval;
 reviewed tracklets can then be exported directly or organized into analysis windows.
 [Full-size diagram and implementation notes](docs/diagrams/README.md).
+
+</details>
 
 ## Run locally
 
@@ -204,6 +238,7 @@ python -m retrieval status
 python -m retrieval windows JOB_ID
 python -m retrieval dataset JOB_ID --mode both
 python -m retrieval dataset JOB_ID --mode windows --include-video
+python -m pip install -e '.[test,azure,import]'
 python -m pytest -q
 npm run build --prefix frontend
 ```

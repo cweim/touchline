@@ -49,3 +49,11 @@ diagram; no match footage, source crops or personal/cloud identifiers are used.
 The figure was checked against `retrieval/pipeline.py`, `retrieval/vision.py`,
 `retrieval/identity.py`, `retrieval/windows.py`, `retrieval/dataset.py` and
 `retrieval/azure_export.py` on 2026-10-27.
+
+
+## Connected applications
+
+[Touchline → dataset ZIP → Movement Lens](touchline-movement-lens.svg) is the shared
+cross-project overview. It distinguishes dataset preparation, the file contract
+and downstream movement exploration. The same SVG is included in both repositories;
+[the handoff guide](../HANDOFF.md) gives the exact export/import steps.
